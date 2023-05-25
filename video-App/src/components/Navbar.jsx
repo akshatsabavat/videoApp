@@ -1,14 +1,4 @@
-import {
-  Heading,
-  Flex,
-  Text,
-  Icon,
-  Input,
-  InputGroup,
-  InputRightAddon,
-  Avatar,
-  Box,
-} from "@chakra-ui/react";
+import { Heading, Flex, Text, Icon, Avatar } from "@chakra-ui/react";
 
 import { BsPlayFill } from "react-icons/bs";
 import { FaVideo } from "react-icons/fa";
