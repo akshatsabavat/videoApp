@@ -34,7 +34,7 @@ export const fetchVideoAPI = () => {
     dispatch(setState(STATUSES.LOADING));
     try {
       const reponse = await fetch(
-        "https://internship-service.onrender.com/videos?page=2"
+        "https://internship-service.onrender.com/videos?page=1"
       );
       const data = await reponse.json();
       dispatch(setVideos(data.data.posts));
