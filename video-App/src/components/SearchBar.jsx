@@ -17,11 +17,22 @@ const SearchBar = () => {
       <Input
         value={searchTerm}
         onChange={handleInputChange}
-        maxW="700px"
+        maxW="500px"
+        height="40px"
+        background="gray.200"
+        border="none"
+        borderRadius="16px"
+        fontSize="14px"
+        fontFamily="Poppins"
         placeholder="Search Videos"
       />
-      <InputRightAddon bg="orange.400">
-        <Icon as={IoIosSearch} boxSize={6} color="white" />
+      <InputRightAddon
+        borderTopRightRadius="16px"
+        borderBottomRightRadius="16px"
+        bg="white.600"
+        borderColor="gray.300"
+      >
+        <Icon as={IoIosSearch} boxSize={6} color="gray.500" />
       </InputRightAddon>
     </InputGroup>
   );

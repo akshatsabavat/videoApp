@@ -1,23 +1,23 @@
-import { Heading, Flex, Text, Icon, Avatar } from "@chakra-ui/react";
+import { Heading, Flex, Text, Icon, Avatar, Image } from "@chakra-ui/react";
 
-import { BsPlayFill } from "react-icons/bs";
+import youtubeIcon from "../assets/YouTubeLogo.svg";
 import { FaVideo } from "react-icons/fa";
-
+import { HiMenu } from "react-icons/hi";
+import { IoIosNotifications } from "react-icons/io";
 import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   return (
     <Flex alignItems="center" justifyContent="space-between">
-      <Heading fontFamily="poppins">
-        <Flex alignItems="center" gap={2}>
-          <Icon as={BsPlayFill} boxSize={7} color="orange.300" />
-          <Text fontSize="22px">Play.io</Text>
-        </Flex>
-      </Heading>
+      <Flex alignItems="center" gap={4}>
+        <Icon as={HiMenu} boxSize={6} />
+        <Image src={youtubeIcon} boxSize={95} color="orange.300" />
+      </Flex>
 
       <SearchBar />
-      <Flex alignItems="center" gap={8}>
-        <Icon as={FaVideo} boxSize={6} />
+      <Flex alignItems="center" gap={6}>
+        <Icon as={FaVideo} boxSize={5} />
+        <Icon as={IoIosNotifications} boxSize={6} color="black" />
         <Avatar
           boxSize={9}
           name="Dan Abrahmov"
