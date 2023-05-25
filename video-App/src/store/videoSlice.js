@@ -29,12 +29,12 @@ export default videoSlice.reducer;
 
 // THUNK function
 
-export const fetchVideoAPI = () => {
+export const fetchVideoAPI = (page) => {
   return async function fetchVideosThunk(dispatch) {
     dispatch(setState(STATUSES.LOADING));
     try {
       const reponse = await fetch(
-        "https://internship-service.onrender.com/videos?page=1"
+        `https://internship-service.onrender.com/videos?page=${page}`
       );
       const data = await reponse.json();
       dispatch(setVideos(data.data.posts));

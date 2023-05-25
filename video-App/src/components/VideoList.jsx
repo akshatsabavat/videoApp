@@ -7,9 +7,11 @@ import { RiPlayList2Fill } from "react-icons/ri";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 const VideoList = () => {
   const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.video);
+  const { data } = useSelector((state) => state.video);
+  const page = useSelector((state) => state.pagination.page);
+  console.log(page);
   useEffect(() => {
-    dispatch(fetchVideoAPI());
+    dispatch(fetchVideoAPI(page));
   }, []);
   return (
     <div>
@@ -21,7 +23,7 @@ const VideoList = () => {
         justifyItems="center"
       >
         {data.map((video) => (
-          <Box fontFamily="poppins" key={video.propId}>
+          <Box key={video.postId} fontFamily="poppins">
             <Box
               h={"200px"}
               w={"350px"}
@@ -30,7 +32,6 @@ const VideoList = () => {
               style={{ position: "relative", overflow: "hidden" }}
             >
               <Image
-                key={video.postId}
                 src={video.submission.thumbnail}
                 alt="Video Thumbnail"
                 style={{
