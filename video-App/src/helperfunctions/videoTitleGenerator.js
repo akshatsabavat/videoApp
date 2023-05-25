@@ -1,4 +1,3 @@
-// Array of possible video title components
 const adjectives = [
   "Trending",
   "Viral",
@@ -8,7 +7,14 @@ const adjectives = [
   "Hilarious",
   "Mind-blowing",
   "Epic",
+  "Unforgettable",
+  "Incredible",
+  "Awesome",
+  "Crazy",
+  "Genius",
+  "Jaw-dropping",
 ];
+
 const nouns = [
   "Challenges",
   "Dances",
@@ -18,7 +24,14 @@ const nouns = [
   "Stunts",
   "Comedy",
   "Entertainment",
+  "Laughs",
+  "Sensation",
+  "Magic",
+  "Adventures",
+  "Gems",
+  "Gags",
 ];
+
 const topics = [
   "TikTok",
   "ForYouPage",
@@ -26,12 +39,19 @@ const topics = [
   "Creators",
   "Influencers",
   "TikTokLife",
-  "TikTokVibes",
+  "TikTok",
   "TikTokFame",
+  "ViralVideos",
+  "Explore",
+  "Popular",
+  "Discover",
+  "TrendingNow",
+  "Buzz",
+  "Phenomenon",
 ];
 
 // Function to generate a random title
-export const generateRandomTitle = () => {
+export const videoTitleGenerator = () => {
   const randomAdjective =
     adjectives[Math.floor(Math.random() * adjectives.length)];
   const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];

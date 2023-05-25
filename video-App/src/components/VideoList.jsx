@@ -4,6 +4,7 @@ import { fetchVideoAPI } from "../store/videoSlice";
 import { Box, Flex, Grid, Icon, Image, Text } from "@chakra-ui/react";
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { RiPlayList2Fill } from "react-icons/ri";
+import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 const VideoList = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.video);
@@ -63,7 +64,7 @@ const VideoList = () => {
               </Flex>
             </Box>
             <Text marginTop={4} fontSize={"xl"} fontWeight={500}>
-              {video.submission.title}
+              {videoTitleGenerator()}
             </Text>
             <Text>{video.creator.name}</Text>
           </Box>
