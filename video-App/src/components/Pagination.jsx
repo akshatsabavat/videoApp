@@ -1,4 +1,4 @@
-import { Box, Button, Circle, Flex, Icon } from "@chakra-ui/react";
+import { Flex, Icon } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { setPaginationNext, setPaginationPrev } from "../store/paginationSlice";
 import { MdArrowCircleRight, MdArrowCircleLeft } from "react-icons/md";
