@@ -13,12 +13,13 @@ import {
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { RiPlayList2Fill } from "react-icons/ri";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
+import VideoCard from "./VideoCard";
 
 const VideoList = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.video);
   const page = useSelector((state) => state.pagination.page);
-  console.log(page);
+
   useEffect(() => {
     dispatch(fetchVideoAPI(page));
   }, [page]);
@@ -35,6 +36,11 @@ const VideoList = () => {
           <CircularProgress color="red" isIndeterminate />
         ) : (
           data.map((video) => (
+            // <VideoCard
+            //   key={video.postId}
+            //   thumbnail={video.submission.thumbnail}
+            //   creatorName={video.creator.name}
+            // />
             <Box key={video.postId} fontFamily="poppins">
               <Box
                 h={"200px"}
