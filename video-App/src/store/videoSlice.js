@@ -8,6 +8,7 @@ const STATUSES = Object.freeze({
 
 const initialVideosState = {
   data: [],
+  page: 0,
   status: STATUSES.IDLE,
 };
 
@@ -20,6 +21,9 @@ const videoSlice = createSlice({
     },
     setState: (state, action) => {
       state.status = action.payload;
+    },
+    setPage: (state, action) => {
+      state.page = action.payload;
     },
   },
 });

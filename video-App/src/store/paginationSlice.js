@@ -9,10 +9,14 @@ const paginationSlice = createSlice({
   initialState: initialState,
   reducers: {
     setPaginationNext: (state) => {
-      state.page < 3 ? (state.page = state.page + 1) : (state.page = 0);
+      if (state.page < 2) {
+        state.page = state.page + 1;
+      }
     },
     setPaginationPrev: (state) => {
-      state.page > 0 ? (state.page = state.page - 1) : (state.page = 3);
+      if (state.page > 0) {
+        state.page = state.page - 1;
+      }
     },
   },
 });

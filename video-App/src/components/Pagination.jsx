@@ -1,25 +1,32 @@
-import { Button, Flex } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { Box, Button, Circle, Flex, Icon } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { setPaginationNext, setPaginationPrev } from "../store/paginationSlice";
+import { MdArrowCircleRight, MdArrowCircleLeft } from "react-icons/md";
+import Navigator from "./Navigator";
+
+const circleArray = [0, 1, 2];
 
 const Pagination = () => {
   const dispatch = useDispatch();
   return (
-    <Flex gap={10}>
-      <Button
+    <Flex justifyContent={"flex-end"} alignItems={"center"} gap={6}>
+      <Icon
         onClick={() => {
           dispatch(setPaginationPrev());
         }}
-      >
-        Prev
-      </Button>
-      <Button
+        as={MdArrowCircleLeft}
+        boxSize={6}
+        color="red"
+      />
+      <Navigator circleArray={circleArray} />
+      <Icon
         onClick={() => {
           dispatch(setPaginationNext());
         }}
-      >
-        Next
-      </Button>
+        as={MdArrowCircleRight}
+        boxSize={6}
+        color="red"
+      />
     </Flex>
   );
 };
