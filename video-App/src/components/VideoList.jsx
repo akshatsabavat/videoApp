@@ -13,6 +13,7 @@ import {
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { RiPlayList2Fill } from "react-icons/ri";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
+
 const VideoList = () => {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.video);

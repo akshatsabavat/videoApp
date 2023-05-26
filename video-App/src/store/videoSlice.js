@@ -32,7 +32,6 @@ export const { setVideos, setState } = videoSlice.actions;
 export default videoSlice.reducer;
 
 // THUNK function
-
 export const fetchVideoAPI = (page) => {
   return async function fetchVideosThunk(dispatch) {
     dispatch(setState(STATUSES.LOADING));
@@ -45,7 +44,7 @@ export const fetchVideoAPI = (page) => {
       dispatch(setState(STATUSES.IDLE));
     } catch (err) {
       console.log(err);
-      dispatch(setState(STATUSES.err));
+      dispatch(setState(STATUSES.ERROR));
     }
   };
 };

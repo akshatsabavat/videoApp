@@ -9,7 +9,7 @@ const circleArray = [0, 1, 2];
 const Pagination = () => {
   const dispatch = useDispatch();
   return (
-    <Flex justifyContent={"flex-end"} alignItems={"center"} gap={6}>
+    <Flex justifyContent={"center"} alignItems={"center"} gap={6}>
       <Icon
         onClick={() => {
           dispatch(setPaginationPrev());
