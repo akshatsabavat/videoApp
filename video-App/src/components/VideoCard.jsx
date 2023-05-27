@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { fetchVideoAPI } from "../store/videoSlice";
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { RiPlayList2Fill } from "react-icons/ri";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 
-const VideoCard = ({ postId, thumbnail, creatorName }) => {
+const VideoCard = ({ thumbnail, creatorName }) => {
   return (
-    <Box key={postId} fontFamily="poppins">
+    <Box fontFamily="poppins">
       <Box
         h={"200px"}
         w={"350px"}

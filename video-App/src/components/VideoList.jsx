@@ -50,8 +50,6 @@ const VideoList = () => {
                   onClick={() => {
                     dispatch(setVideoDetails(video.submission));
                     dispatch(setCreatorDetails(video.creator));
-                    console.log(videoDetails);
-                    console.log(creatorDetails);
                   }}
                   h={"200px"}
                   w={"350px"}
