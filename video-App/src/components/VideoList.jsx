@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVideoAPI } from "../store/videoSlice";
+
 import {
   Box,
   Flex,
@@ -15,6 +16,7 @@ import { RiPlayList2Fill } from "react-icons/ri";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import { setCreatorDetails, setVideoDetails } from "../store/videoPlayerSlice";
 
 const VideoList = () => {
   const dispatch = useDispatch();
@@ -42,15 +44,15 @@ const VideoList = () => {
             //   thumbnail={video.submission.thumbnail}
             //   creatorName={video.creator.name}
             // />
-            <Box
-              onClick={() => {
-                console.log(video);
-              }}
-              key={video.postId}
-              fontFamily="poppins"
-            >
+            <Box key={video.postId} fontFamily="poppins">
               <Link to={"/video"}>
                 <Box
+                  onClick={() => {
+                    dispatch(setVideoDetails(video.submission));
+                    dispatch(setCreatorDetails(video.creator));
+                    console.log(videoDetails);
+                    console.log(creatorDetails);
+                  }}
                   h={"200px"}
                   w={"350px"}
                   borderRadius="15px"
