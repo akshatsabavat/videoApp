@@ -13,7 +13,7 @@ const VideoList = () => {
 
   useEffect(() => {
     dispatch(fetchVideoAPI(page));
-  }, [page]);
+  }, [page, dispatch]);
 
   return (
     <div>
