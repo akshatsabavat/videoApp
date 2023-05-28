@@ -7,32 +7,26 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 
 import { IoIosShareAlt } from "react-icons/io";
 import { MdNotificationsActive } from "react-icons/md";
 import { HiDownload } from "react-icons/hi";
+import Player from "../components/videoPlayerComponents/Player";
+import { setSubsciption } from "../store/subscriptionSlice";
+
 const VideoPlayer = () => {
+  const dispatch = useDispatch();
   const { videoDetails, creatorDetails } = useSelector(
     (state) => state.videoPlayer
   );
+  const { subscriptions } = useSelector((state) => state.subscription);
+  console.log(subscriptions);
   return (
     <Container fontFamily="poppins" paddingTop="3rem" maxW="1200px">
-      <div
-        style={{
-          width: "750px",
-          height: "400px",
-          backgroundColor: "black",
-          borderBottom: "solid #000 10px",
-          borderRadius: "12px",
-        }}
-      >
-        <video controls style={{ width: "100%", height: "100%" }}>
-          <source src={videoDetails.mediaUrl} type="video/mp4" />
-        </video>
-      </div>
-      <Box marginTop={"20px"}>
+      <Player mediaLink={videoDetails.mediaUrl} />
+      <Box marginTop={"25px"}>
         <Flex
           alignItems={"center"}
           gap={3}
@@ -40,9 +34,15 @@ const VideoPlayer = () => {
           maxW="750px"
           justifyContent={"space-between"}
         >
-          <Text fontFamily="poppins" fontWeight={500} fontSize="21px">
-            {videoTitleGenerator()}
-          </Text>
+          <Box>
+            <Text fontFamily="poppins" fontWeight={500} fontSize="22px">
+              {videoTitleGenerator()}
+            </Text>
+            <Text marginTop="5px">
+              {Math.floor(Math.random() * 100) + 100},
+              {Math.floor(Math.random() * 100) + 100} views
+            </Text>
+          </Box>
           <Flex fontSize="15px" gap={6}>
             <Flex
               _hover={{
@@ -73,7 +73,7 @@ const VideoPlayer = () => {
         <Flex
           alignItems={"center"}
           gap={3}
-          marginTop="30px"
+          marginTop="25px"
           maxW="750px"
           justifyContent={"space-between"}
         >
@@ -83,8 +83,8 @@ const VideoPlayer = () => {
               <Text fontWeight={600} fontSize="17px">
                 {creatorDetails.handle}
               </Text>
-              <Text color="gray.500" marginTop="-3px">
-                15.7k subscribers
+              <Text color="gray.500">
+                {Math.floor(Math.random() * 900) + 100}k subscribers
               </Text>
             </Box>
           </Flex>
@@ -110,6 +110,9 @@ const VideoPlayer = () => {
               _hover={{
                 color: "white",
                 background: "red",
+              }}
+              onClick={() => {
+                dispatch(setSubsciption(creatorDetails));
               }}
             >
               Subscribe

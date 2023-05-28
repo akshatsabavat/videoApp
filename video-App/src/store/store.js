@@ -3,6 +3,7 @@ import searchReducer from "./searchSlice";
 import videoReducer from "./videoSlice";
 import paginationReducer from "./paginationSlice";
 import videoPlayerReducer from "./videoPlayerSlice";
+import subscriptionReducer from "./subscriptionSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     video: videoReducer,
     pagination: paginationReducer,
     videoPlayer: videoPlayerReducer,
+    subscription: subscriptionReducer,
   },
 });
 
