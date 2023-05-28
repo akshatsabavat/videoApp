@@ -6,6 +6,7 @@ import {
   Icon,
   Image,
   Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
@@ -14,13 +15,23 @@ import { IoIosShareAlt } from "react-icons/io";
 import { MdNotificationsActive } from "react-icons/md";
 import { HiDownload } from "react-icons/hi";
 import Player from "../components/videoPlayerComponents/Player";
-import { setSubsciption } from "../store/subscriptionSlice";
+import { setSubsciption, removeSubscription } from "../store/subscriptionSlice";
 
 const VideoPlayer = () => {
   const dispatch = useDispatch();
   const { videoDetails, creatorDetails } = useSelector(
     (state) => state.videoPlayer
   );
+  const subs = useSelector((state) => state.subscription.subscriptions);
+  const addSubscription = (payload) => {
+    dispatch(setSubsciption(payload));
+  };
+  console.log(subs);
+  const deleteSubscription = (payload) => {
+    dispatch(removeSubscription(payload));
+  };
+  console;
+
   return (
     <Container fontFamily="poppins" paddingTop="3rem" maxW="1200px">
       <Player mediaLink={videoDetails.mediaUrl} />
@@ -71,7 +82,7 @@ const VideoPlayer = () => {
         <Flex
           alignItems={"center"}
           gap={3}
-          marginTop="25px"
+          marginTop="20px"
           maxW="750px"
           justifyContent={"space-between"}
         >
@@ -97,24 +108,49 @@ const VideoPlayer = () => {
               boxSize={6}
               as={MdNotificationsActive}
             />
-            <Button
-              marginLeft="20px"
-              paddingX="35px"
-              backgroundColor="white"
-              border="solid 2px red"
-              fontFamily="poppins"
-              color="red"
-              fontSize="15px"
-              _hover={{
-                color: "white",
-                background: "red",
-              }}
-              onClick={() => {
-                dispatch(setSubsciption(creatorDetails));
-              }}
-            >
-              Subscribe
-            </Button>
+            {subs.includes(creatorDetails) ? (
+              <Tooltip
+                label="Unsubscribe"
+                hasArrow
+                placement="right"
+                p={"10px"}
+                marginLeft={"10px"}
+              >
+                <Button
+                  marginLeft="20px"
+                  paddingX="35px"
+                  backgroundColor="red"
+                  border="solid 2px red"
+                  color="white"
+                  fontFamily="poppins"
+                  fontSize="15px"
+                  onClick={() => deleteSubscription(creatorDetails.id)}
+                  _hover={{
+                    color: "white",
+                    backgroundColor: "red",
+                  }}
+                >
+                  Subscribed
+                </Button>
+              </Tooltip>
+            ) : (
+              <Button
+                marginLeft="20px"
+                paddingX="35px"
+                backgroundColor="white"
+                border="solid 2px red"
+                fontFamily="poppins"
+                color="red"
+                fontSize="15px"
+                _hover={{
+                  color: "white",
+                  background: "red",
+                }}
+                onClick={() => addSubscription(creatorDetails)}
+              >
+                Subscribe
+              </Button>
+            )}
           </Flex>
         </Flex>
       </Box>

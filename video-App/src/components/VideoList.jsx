@@ -7,13 +7,15 @@ import VideoCard from "./VideoCard";
 
 const VideoList = () => {
   const dispatch = useDispatch();
+
   const { data, status } = useSelector((state) => state.video);
   const page = useSelector((state) => state.pagination.page);
   const subs = useSelector((state) => state.subscription.subscriptions);
+
   useEffect(() => {
     dispatch(fetchVideoAPI(page));
   }, [page]);
-  console.log(subs);
+
   return (
     <div>
       <Grid

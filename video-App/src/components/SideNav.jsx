@@ -184,9 +184,15 @@ const SideNav = ({ drawerState, setDrawerState, headerIcon, subs }) => {
           <Box marginTop={"10px"}>
             {subs.map((sub) => {
               return (
-                <Text marginBottom="10px" fontSize="14px" key={sub.id}>
-                  {sub.handle}
-                </Text>
+                <Flex
+                  marginBottom="20px"
+                  alignItems="center"
+                  gap={"15px"}
+                  key={sub.id}
+                >
+                  <Image borderRadius="50%" height="30px" src={sub.pic} />
+                  <Text fontSize="15px">{sub.handle}</Text>
+                </Flex>
               );
             })}
           </Box>
