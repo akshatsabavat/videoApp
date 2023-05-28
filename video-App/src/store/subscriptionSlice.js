@@ -12,14 +12,12 @@ const subscriptionSlice = createSlice({
       const payload = action.payload;
       if (!state.subscriptions.includes(payload)) {
         state.subscriptions.push(payload);
-        state.isSubscribed = true;
       }
     },
     removeSubscription: (state, action) => {
       state.subscriptions = state.subscriptions.filter(
         (item) => item.id !== action.payload
       );
-      state.isSubscribed(false);
     },
   },
 });

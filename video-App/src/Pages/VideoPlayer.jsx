@@ -23,7 +23,9 @@ const VideoPlayer = () => {
     (state) => state.videoPlayer
   );
   const subs = useSelector((state) => state.subscription.subscriptions);
-  const isSubscribed = useSelector((state) => state.subscription.isSubscribed);
+  const isSubscribed = subs.reduce((acc, cur) => {
+    return acc || cur.id == creatorDetails.id;
+  }, false);
 
   const addSubscription = (payload) => {
     dispatch(setSubsciption(payload));
@@ -110,7 +112,7 @@ const VideoPlayer = () => {
               boxSize={6}
               as={MdNotificationsActive}
             />
-            {subs.includes(creatorDetails) ? (
+            {isSubscribed ? (
               <Tooltip
                 label="Unsubscribe"
                 hasArrow
