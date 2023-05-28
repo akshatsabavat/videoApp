@@ -80,12 +80,7 @@ const SideNav = ({ drawerState, setDrawerState, headerIcon, subs }) => {
     setDrawerState(false);
   };
 
-  SideNav.propTypes = {
-    drawerState: PropTypes.bool.isRequired,
-    setDrawerState: PropTypes.func.isRequired,
-    headerIcon: PropTypes.string.isRequired,
-    subs: PropTypes.array.isRequired,
-  };
+  console.log(subs);
 
   return (
     <Drawer isOpen={drawerState} placement="left" onClose={onClose}>
@@ -182,24 +177,33 @@ const SideNav = ({ drawerState, setDrawerState, headerIcon, subs }) => {
             Subscriptions
           </Text>
           <Box marginTop={"15px"}>
-            {subs.map((sub) => {
-              return (
-                <Flex
-                  marginBottom="20px"
-                  alignItems="center"
-                  gap={"15px"}
-                  key={sub.id}
-                >
-                  <Image borderRadius="50%" height="30px" src={sub.pic} />
-                  <Text fontSize="15px">{sub.handle}</Text>
-                </Flex>
-              );
-            })}
+            {subs
+              .filter((s) => !!s)
+              .map((sub) => {
+                return (
+                  <Flex
+                    marginBottom="20px"
+                    alignItems="center"
+                    gap={"15px"}
+                    key={sub.id}
+                  >
+                    <Image borderRadius="50%" height="30px" src={sub.pic} />
+                    <Text fontSize="15px">{sub.handle}</Text>
+                  </Flex>
+                );
+              })}
           </Box>
         </DrawerBody>
       </DrawerContent>
     </Drawer>
   );
+};
+
+SideNav.propTypes = {
+  drawerState: PropTypes.bool.isRequired,
+  setDrawerState: PropTypes.func.isRequired,
+  headerIcon: PropTypes.string.isRequired,
+  subs: PropTypes.array.isRequired,
 };
 
 export default SideNav;
