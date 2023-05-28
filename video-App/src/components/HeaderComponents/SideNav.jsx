@@ -181,7 +181,7 @@ const SideNav = ({ drawerState, setDrawerState, headerIcon, subs }) => {
           >
             Subscriptions
           </Text>
-          <Box marginTop={"10px"}>
+          <Box marginTop={"15px"}>
             {subs.map((sub) => {
               return (
                 <Flex

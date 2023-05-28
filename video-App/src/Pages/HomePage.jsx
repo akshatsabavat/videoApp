@@ -1,6 +1,6 @@
 import { Container } from "@chakra-ui/react";
-import VideoList from "../components/VideoList";
-import Pagination from "../components/Pagination";
+import VideoList from "../components/VideoComponents/VideoList";
+import Pagination from "../components/PaginationComponents/Pagination";
 const HomePage = () => {
   return (
     <div className="App">

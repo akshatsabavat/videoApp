@@ -1,6 +1,9 @@
 import { Flex, Icon } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { setPaginationNext, setPaginationPrev } from "../store/paginationSlice";
+import {
+  setPaginationNext,
+  setPaginationPrev,
+} from "../../store/paginationSlice";
 import { MdArrowCircleRight, MdArrowCircleLeft } from "react-icons/md";
 import Navigator from "./Navigator";
 

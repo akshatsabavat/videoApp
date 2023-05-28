@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { setSearchTerm } from "../store/searchSlice";
+import { setSearchTerm } from "../../store/searchSlice";
 
 import { Icon, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import { IoIosSearch } from "react-icons/io";

@@ -14,7 +14,7 @@ import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
 import { IoIosShareAlt } from "react-icons/io";
 import { MdNotificationsActive } from "react-icons/md";
 import { HiDownload } from "react-icons/hi";
-import Player from "../components/videoPlayerComponents/Player";
+import Player from "../components/VideoComponents/Player";
 import { setSubsciption, removeSubscription } from "../store/subscriptionSlice";
 
 const VideoPlayer = () => {
@@ -23,14 +23,16 @@ const VideoPlayer = () => {
     (state) => state.videoPlayer
   );
   const subs = useSelector((state) => state.subscription.subscriptions);
+  const isSubscribed = useSelector((state) => state.subscription.isSubscribed);
+
   const addSubscription = (payload) => {
     dispatch(setSubsciption(payload));
   };
-  console.log(subs);
   const deleteSubscription = (payload) => {
     dispatch(removeSubscription(payload));
   };
-  console;
+
+  console.log(isSubscribed);
 
   return (
     <Container fontFamily="poppins" paddingTop="3rem" maxW="1200px">

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchVideoAPI } from "../store/videoSlice";
+import { fetchVideoAPI } from "../../store/videoSlice";
 
 import { Grid, CircularProgress } from "@chakra-ui/react";
 import VideoCard from "./VideoCard";
@@ -10,7 +10,6 @@ const VideoList = () => {
 
   const { data, status } = useSelector((state) => state.video);
   const page = useSelector((state) => state.pagination.page);
-  const subs = useSelector((state) => state.subscription.subscriptions);
 
   useEffect(() => {
     dispatch(fetchVideoAPI(page));

@@ -15,8 +15,12 @@ const videoPlayerSlice = createSlice({
     setCreatorDetails: (state, action) => {
       state.creatorDetails = action.payload;
     },
+    setSubcriptionState: (state, action) => {
+      state.isSubscribed = action.payload;
+    },
   },
 });
 
-export const { setCreatorDetails, setVideoDetails } = videoPlayerSlice.actions;
+export const { setCreatorDetails, setVideoDetails, setSubcriptionState } =
+  videoPlayerSlice.actions;
 export default videoPlayerSlice.reducer;

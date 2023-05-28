@@ -1,6 +1,6 @@
 import { Flex, Icon, Avatar, Image, Container } from "@chakra-ui/react";
 
-import youtubeIcon from "../assets/YouTubeLogo.svg";
+import youtubeIcon from "../../assets/YouTubeLogo.svg";
 import { FaVideo } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { IoIosNotifications } from "react-icons/io";

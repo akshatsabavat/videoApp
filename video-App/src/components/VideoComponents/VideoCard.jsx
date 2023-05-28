@@ -1,12 +1,17 @@
 import { BsFillStopwatchFill } from "react-icons/bs";
 import { RiPlayList2Fill } from "react-icons/ri";
 import { MdVerified } from "react-icons/md";
-import { videoTitleGenerator } from "../helperfunctions/videoTitleGenerator";
+import { videoTitleGenerator } from "../../helperfunctions/videoTitleGenerator";
 
 import { Box, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { setCreatorDetails, setVideoDetails } from "../store/videoPlayerSlice";
+import {
+  setCreatorDetails,
+  setVideoDetails,
+} from "../../store/videoPlayerSlice";
 import { Link } from "react-router-dom";
+
+import PropTypes from "prop-types";
 
 const VideoCard = ({
   thumbnail,
@@ -88,6 +93,14 @@ const VideoCard = ({
       </Flex>
     </Box>
   );
+};
+
+VideoCard.propTypes = {
+  thumbnail: PropTypes.string.isRequired,
+  creatorHandle: PropTypes.string.isRequired,
+  videoDetails: PropTypes.object.isRequired,
+  creatorDetails: PropTypes.object.isRequired,
+  creatorPic: PropTypes.string.isRequired,
 };
 
 export default VideoCard;

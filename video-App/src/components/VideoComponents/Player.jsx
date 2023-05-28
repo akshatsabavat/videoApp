@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Player = ({ mediaLink }) => {
   return (
     <div
@@ -14,6 +16,10 @@ const Player = ({ mediaLink }) => {
       </video>
     </div>
   );
+};
+
+Player.propTypes = {
+  mediaLink: PropTypes.string.isRequired,
 };
 
 export default Player;
