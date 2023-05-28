@@ -17,7 +17,7 @@ const VideoCard = ({
 }) => {
   const dispatch = useDispatch();
   return (
-    <Box fontFamily="poppins">
+    <Box fontFamily="Eudoxus Sans">
       <Link to={"/video"}>
         <Box
           onClick={() => {
@@ -76,7 +76,7 @@ const VideoCard = ({
       <Flex marginTop="25px" alignItems={"flex-start"} gap={4}>
         <Image height="40px" width="40px" borderRadius="50%" src={creatorPic} />
         <Box>
-          <Text fontSize={"xl"} fontWeight={500}>
+          <Text fontSize={"xl"} color="blackAlpha.800" fontWeight={600}>
             {videoTitleGenerator()}
           </Text>
           <Flex marginTop="3px" gap={2} alignItems={"center"}>

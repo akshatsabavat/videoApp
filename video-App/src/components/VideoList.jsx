@@ -13,6 +13,7 @@ const VideoList = () => {
   useEffect(() => {
     dispatch(fetchVideoAPI(page));
   }, [page]);
+  console.log(subs);
   return (
     <div>
       <Grid

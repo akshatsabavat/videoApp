@@ -5,13 +5,25 @@ import { FaVideo } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { IoIosNotifications } from "react-icons/io";
 import SearchBar from "./SearchBar";
+import SideNav from "./SideNav";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const [drawerState, setDrawerState] = useState(false);
+  const subs = useSelector((state) => state.subscription.subscriptions);
+
   return (
     <Container maxW="1200px">
       <Flex alignItems="center" justifyContent="space-between">
         <Flex alignItems="center" gap={4}>
-          <Icon as={HiMenu} boxSize={6} />
+          <Icon
+            onClick={() => {
+              setDrawerState(true);
+            }}
+            as={HiMenu}
+            boxSize={6}
+          />
           <Image
             onClick={() => (window.location.href = "/")}
             _hover={{
@@ -20,6 +32,12 @@ const Navbar = () => {
             src={youtubeIcon}
             boxSize={95}
             color="orange.300"
+          />
+          <SideNav
+            subs={subs}
+            headerIcon={youtubeIcon}
+            drawerState={drawerState}
+            setDrawerState={setDrawerState}
           />
         </Flex>
 
