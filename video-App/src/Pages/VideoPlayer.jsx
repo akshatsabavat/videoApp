@@ -21,8 +21,6 @@ const VideoPlayer = () => {
   const { videoDetails, creatorDetails } = useSelector(
     (state) => state.videoPlayer
   );
-  const { subscriptions } = useSelector((state) => state.subscription);
-  console.log(subscriptions);
   return (
     <Container fontFamily="poppins" paddingTop="3rem" maxW="1200px">
       <Player mediaLink={videoDetails.mediaUrl} />
